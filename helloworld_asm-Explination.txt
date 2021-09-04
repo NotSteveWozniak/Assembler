@@ -1,0 +1,19 @@
+global _main  - entry point to program
+extern _printf - using external printf
+
+section .data - required
+msg db "Hello World!!", 0Dh, 0Ah, 0 - msg variable stored as a double withcarriage return
+section .bss - required
+section .txt - required
+_main: - entry point
+	push ebp - required set up code
+	mov ebp, esp - required set up code
+	
+	push msg
+	call _printf
+	add esp, 4
+	
+	
+	mov esp, ebp  - required exit code
+	pop ebp  - required exit code
+ret
